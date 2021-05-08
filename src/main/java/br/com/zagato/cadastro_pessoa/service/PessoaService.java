@@ -38,7 +38,7 @@ public class PessoaService implements IService<Pessoa> {
     public Pessoa update(Pessoa pessoa) {
         return pessoaRepository.findById(pessoa.getId()).map(p -> {
             if (pessoa.getNome() != null) p.setNome(pessoa.getNome());
-            if (pessoa.getSobrenome() != null) p.setNome(pessoa.getSobrenome());
+            if (pessoa.getSobrenome() != null) p.setSobrenome(pessoa.getSobrenome());
             return pessoaRepository.save(p);
         }).orElseThrow(() -> new CustomObjectNotFoundException(pessoa.getId(), Pessoa.class));
     }
